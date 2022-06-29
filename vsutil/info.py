@@ -129,7 +129,7 @@ def is_image(filename: str, /) -> bool:
 def scale_value(value: Union[int, float],
                 input_depth: int,
                 output_depth: int,
-                range_in: Union[int, types.Range] = 0,
+                range_in: Union[int, types.Range] = types.Range.LIMITED,
                 range: Optional[Union[int, types.Range]] = None,
                 scale_offsets: bool = False,
                 chroma: bool = False,
