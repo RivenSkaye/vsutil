@@ -161,10 +161,10 @@ def scale_value(value: Union[int, float],
     range = func.fallback(range, range_in)
 
     if input_depth == 32:
-        range_in = Range.FULL
+        range_in = Range.FULL.value
 
     if output_depth == 32:
-        range = Range.FULL
+        range = Range.FULL.value
 
     def peak_pixel_value(bits: int, range_: Union[int, types.Range], chroma_: bool) -> int:
         """
@@ -186,7 +186,7 @@ def scale_value(value: Union[int, float],
     if scale_offsets:
         if output_depth == 32 and chroma:
             value -= 128 << (input_depth - 8)
-        elif range and not range_in:
+        elif range == Range.FULL and range_in == Range.LIMITED:
             value -= 16 << (input_depth - 8)
 
     value *= output_peak / input_peak
