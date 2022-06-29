@@ -194,7 +194,7 @@ def scale_value(value: Union[int, float],
     if scale_offsets:
         if input_depth == 32 and chroma:
             value += 128 << (output_depth - 8)
-        elif range_in and not range:
+        elif range == Range.FULL and range_in == Range.Limited:
             value += 16 << (output_depth - 8)
 
     return value
