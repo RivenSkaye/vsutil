@@ -15,6 +15,7 @@ core = vs.core
 
 R = TypeVar('R')
 T = TypeVar('T')
+Range = types.Range
 
 
 @func.disallow_variable_format
@@ -129,7 +130,7 @@ def is_image(filename: str, /) -> bool:
 def scale_value(value: Union[int, float],
                 input_depth: int,
                 output_depth: int,
-                range_in: Union[int, types.Range] = types.Range.LIMITED,
+                range_in: Union[int, types.Range] = Range.LIMITED,
                 range: Optional[Union[int, types.Range]] = None,
                 scale_offsets: bool = False,
                 chroma: bool = False,
